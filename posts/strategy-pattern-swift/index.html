@@ -21,7 +21,7 @@
       "articleSection" : "posts",
       "name" : "Refactoring Strategy Pattern Swift",
       "headline" : "Refactoring Strategy Pattern Swift",
-      "description" : "Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:\n Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern",
+      "description" : "Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other based on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:\n Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern",
       "inLanguage" : "en-US",
       "author" : "Khoi Nguyen",
       "creator" : "Khoi Nguyen",
@@ -38,9 +38,9 @@
 <title>Refactoring Strategy Pattern Swift - Khoi&#39;s Blog</title>
   <meta property="og:title" content="Refactoring Strategy Pattern Swift - Khoi&#39;s Blog" />
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
+  <meta property="og:description" content="Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other based on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
  Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern" />
-  <meta name="description" content="Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
+  <meta name="description" content="Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other based on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
  Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern" />
   <meta property="og:locale" content="" />
 
@@ -90,7 +90,7 @@
             <div class="col-xs-6">
               
               <div class="post-author">
-                <a target="_blank" href="https://github.com/ntkhoi">@Khoi Nguyen</a>
+                <a target="_blank" href="/about.html">@Khoi Nguyen</a>
               </div>
               
             </div>
@@ -101,7 +101,7 @@
         <div class="post-content markdown-body">
           
           <h2 id="problem">Problem</h2>
-<p>An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order.
+<p>An Example of strategy applies to the eCommerce, domain is computed discounts to other based on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order.
 Example: Oder food delivery with some discount rule:</p>
 <ul>
 <li>Discount 10% for User have 100 or more grab reward point.</li>
@@ -281,7 +281,7 @@ This is the simplest solution:</p>
 </ul>
 <p>After refactor this is much better . However, There is some duplication that could lead to a subtle bug: to add a new promotion strategy, we need to code the function and remember to add it to the promos list.
 To prevent this issue we can using new feature in swift <code>Property Wrapper</code>. This feature added to swift5.1.
-Just simply create property wrapper below. Each strategy function will add to <code>promos</code> list by <code>PromotionWrapper</code></p>
+Just simply create property wrapper below. Each strategy function will be added to <code>promos</code> list by <code>PromotionWrapper</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> promos: Array&lt;Promotion&gt; = []
 @propertyWrapper
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">PromotionWrapper</span> {
@@ -329,6 +329,10 @@ Just simply create property wrapper below. Each strategy function will add to <c
         
 
         <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="/about.html" target="_blank">about</a>
+  </div>
   
   <div class="site-footer-item">
     <a href="https://www.linkedin.com/in/khoi-nguyen-753306a7" target="_blank">linkedin</a>
