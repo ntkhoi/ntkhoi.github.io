@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Khoi&#39;s Blog</title>
-    <link>https://ntkhoi.github.io/</link>
-    <description>Recent content on Khoi&#39;s Blog</description>
+    <title>Posts on Khoi&#39;s Blog</title>
+    <link>https://ntkhoi.github.io/posts/</link>
+    <description>Recent content in Posts on Khoi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 04 Apr 2020 00:08:29 +0700</lastBuildDate>
     
-	<atom:link href="https://ntkhoi.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ntkhoi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

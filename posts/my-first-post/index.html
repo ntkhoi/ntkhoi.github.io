@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.69.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Khoi Nguyen" />
+  <meta property="og:url" content="https://ntkhoi.github.io/posts/my-first-post/" />
+  <link rel="canonical" href="https://ntkhoi.github.io/posts/my-first-post/" /><link rel="alternate" type="application/atom+xml" href="https://ntkhoi.github.io/index.xml" title="Khoi&#39;s Blog">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/ntkhoi.github.io\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Refactoring Strategy Pattern Swift",
+      "headline" : "Refactoring Strategy Pattern Swift",
+      "description" : "Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:\n Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern",
+      "inLanguage" : "en-US",
+      "author" : "Khoi Nguyen",
+      "creator" : "Khoi Nguyen",
+      "publisher": "Khoi Nguyen",
+      "accountablePerson" : "Khoi Nguyen",
+      "copyrightHolder" : "Khoi Nguyen",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-04-04 00:08:29 \x2b0700 \x2b07",
+      "dateModified" : "2020-04-04 00:08:29 \x2b0700 \x2b07",
+      "url" : "https:\/\/ntkhoi.github.io\/posts\/my-first-post\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Refactoring Strategy Pattern Swift - Khoi&#39;s Blog</title>
+  <meta property="og:title" content="Refactoring Strategy Pattern Swift - Khoi&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
+ Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern" />
+  <meta name="description" content="Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
+ Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern" />
+  <meta property="og:locale" content="" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="Khoi&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker|Bree+Serif" rel="stylesheet">
+  
+  
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Khoi Nguyen</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Refactoring Strategy Pattern Swift</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-04-04 00:08:29 &#43;07">
+                04 Apr 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://github.com/ntkhoi">@Khoi Nguyen</a>
+              </div>
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <h2 id="problem">Problem</h2>
+<p>An Example of strategy applies to the eCommerce, domain is computed discounts to other base on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order.
+Example: Oder food delivery with some discount rule:</p>
+<ul>
+<li>Discount 10% for User have 100 or more grab reward point.</li>
+<li>Discount 5$ apply to order with price total 100$ or more.</li>
+<li>Discount 7% apply to order have at least 10 distinct items</li>
+</ul>
+<h3 id="uml-class-diagram-implements-strategy-pattern">UML class diagram implements strategy pattern</h3>
+<p><a href=""><img src="https://i.imgur.com/twsIBa9.png%5B/img%5D" alt="N|Solid"></a></p>
+<h2 id="intent">Intent</h2>
+<p>Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.</p>
+<p><strong>Context</strong>: Provides a service by delegating some computation to interchangeable components that implement alternative algorithms. In this example is <code>Order</code>.</p>
+<p><strong>Strategy</strong>:  The Strategy interface is common to all concrete strategies. It declares a method the context uses to execute a strategy. Is this examble is is <code>Promotion</code>.</p>
+<p><strong>Concrete Strategy</strong>: Implement different variations of an algorithm in the context used. In this example it is <code>UserRewardPromote</code>, <code>BulkPromote</code>, <code>LargeItemPromote</code> three concrete strategies implemented.</p>
+<p>Below is implementation of UML in swift.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+    <span style="color:#66d9ef">let</span> rewaredPoint: Int
+    <span style="color:#66d9ef">let</span> name: String
+    <span style="color:#66d9ef">init</span>(name: String,rewaredPoint: Int) {
+        <span style="color:#66d9ef">self</span>.rewaredPoint = rewaredPoint
+        <span style="color:#66d9ef">self</span>.name = name
+    }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CartItem</span> {
+    <span style="color:#66d9ef">let</span> food: String
+    <span style="color:#66d9ef">let</span> quantity: Int
+    <span style="color:#66d9ef">let</span> price: Int
+    <span style="color:#66d9ef">init</span>(food: String, quantity: Int, price: Int) {
+        <span style="color:#66d9ef">self</span>.food = food
+        <span style="color:#66d9ef">self</span>.quantity = quantity
+        <span style="color:#66d9ef">self</span>.price = price
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">total</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">self</span>.price <span style="color:#f92672">*</span> <span style="color:#66d9ef">self</span>.quantity
+    }
+}
+
+<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Strategy</span>
+<span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">Promotion</span> {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">discount</span>(<span style="color:#66d9ef">_</span> order: Order) -&gt; Int
+}
+<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Context</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> {
+    <span style="color:#66d9ef">let</span> user: User!
+    <span style="color:#66d9ef">let</span> cart: Array&lt;CartItem&gt;
+    <span style="color:#66d9ef">let</span> promotion: Promotion
+    <span style="color:#66d9ef">init</span>(user: User, cart: Array&lt;CartItem&gt;, promotion: Promotion) {
+        <span style="color:#66d9ef">self</span>.user = user
+        <span style="color:#66d9ef">self</span>.cart = cart
+        <span style="color:#66d9ef">self</span>.promotion = promotion
+    }
+
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">total</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> cart.reduce(<span style="color:#ae81ff">0</span>) { (result, item) -&gt; Int <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">return</span> result <span style="color:#f92672">+</span> item.total()
+        }
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">finalPayment</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> total() <span style="color:#f92672">-</span> promotion.discount(<span style="color:#66d9ef">self</span>)
+    }
+}
+
+<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> First Concrete Strategy</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserRewardPromote</span>: Promotion {
+    <span style="color:#75715e">//</span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Discount 10% for User have 100 or more grab rewared point.</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">discount</span>(<span style="color:#66d9ef">_</span> order: Order) -&gt; Int {
+        <span style="color:#66d9ef">if</span> (order.user.rewaredPoint <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">100</span>) {
+            <span style="color:#66d9ef">return</span> Int(Double(order.total()) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span>)
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BulkPromote</span>: Promotion {
+    <span style="color:#75715e">//</span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Discount 5$ apply to order with price total 100$ or more.</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">discount</span>(<span style="color:#66d9ef">_</span> order: Order) -&gt; Int {
+        <span style="color:#66d9ef">if</span> (order.total() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>) {
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">5</span>
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LargeItemPromote</span>: Promotion {
+    <span style="color:#75715e">//</span><span style="color:#75715e">MARK:</span><span style="color:#75715e">  Discount 7% apply to order have at least 10 distinct items</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">discount</span>(<span style="color:#66d9ef">_</span> order: Order) -&gt; Int {
+        <span style="color:#66d9ef">if</span> (order.cart.count  <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span>) {
+            <span style="color:#66d9ef">return</span> Int(Double(order.total()) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.7</span>)
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    }
+}
+
+<span style="color:#66d9ef">let</span> bazoUser = User(name: <span style="color:#e6db74">&#34;Bazo Developer&#34;</span>, rewaredPoint: <span style="color:#ae81ff">120</span>)
+<span style="color:#66d9ef">let</span> cart: Array&lt;CartItem&gt; = [
+    CartItem(food: <span style="color:#e6db74">&#34;Chicken Rise&#34;</span>, quantity: <span style="color:#ae81ff">3</span>, price: <span style="color:#ae81ff">10</span>),
+    CartItem(food: <span style="color:#e6db74">&#34;Apple&#34;</span>, quantity: <span style="color:#ae81ff">40</span>, price: <span style="color:#ae81ff">2</span>) ,
+    CartItem(food: <span style="color:#e6db74">&#34;Banh My&#34;</span>, quantity: <span style="color:#ae81ff">5</span>, price: <span style="color:#ae81ff">10</span>) ,
+    CartItem(food: <span style="color:#e6db74">&#34;Pho&#34;</span>, quantity: <span style="color:#ae81ff">60</span>, price: <span style="color:#ae81ff">2</span>) ]
+<span style="color:#66d9ef">let</span> order = Order(user: bazoUser, cart: cart, promotion: UserRewardPromote())
+print(<span style="color:#e6db74">&#34;Order Total: </span><span style="color:#e6db74">\(</span>order.total<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">&#34;Order discount: </span><span style="color:#e6db74">\(</span>order.discount<span style="color:#e6db74">())</span><span style="color:#e6db74">$&#34;</span>)
+print(<span style="color:#e6db74">&#34;User </span><span style="color:#e6db74">\(</span>order.user.name<span style="color:#e6db74">)</span><span style="color:#e6db74"> pay: </span><span style="color:#e6db74">\(</span>order.finalPayment<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>Result:</p>
+<blockquote>
+<p>Order Total: 280$
+Order discount: 28$
+User Bazo Developer pay: 252$</p>
+</blockquote>
+<p>Thinking about refactoring.
+In this example, we create an instance of promotion for each concrete strategy.
+We often concrete strategies have no internal state. They only deal with data from the context. If that is the case, then by all means use plain old functions instead of coding single-method classes implementing a single-method interface declared in yet another class.
+A function is more lightweight than an instance of a user-defined class because each strategy function is created just once by when it compiles. A plain function is also “a shared object that can be used in multiple contexts simultaneously.”
+We can refactor concrete strategies instances to these functions.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">//</span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Discount 10% for User have 100 or more grab rewared point.</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userRewardPromote</span>(<span style="color:#66d9ef">_</span> order: Order) -&gt; Int {
+    <span style="color:#66d9ef">if</span> (order.user.rewaredPoint <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">100</span>) {
+        <span style="color:#66d9ef">return</span> Int(Double(order.total()) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span>)
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+}
+
+<span style="color:#75715e">//</span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Discount 5$ apply to order with price total 100$ or more.</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bulkPromote</span>(_order: Order) -&gt; Int {
+    <span style="color:#66d9ef">if</span> (order.total() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>) {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">5</span>
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+}
+
+<span style="color:#75715e">//</span><span style="color:#75715e">MARK:</span><span style="color:#75715e">  Discount 7% apply to order have at least 10 distinct items</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">largeItemPromote</span>(<span style="color:#66d9ef">_</span> order: Order) -&gt; Int {
+    <span style="color:#66d9ef">if</span> (order.cart.count  <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">10</span>) {
+        <span style="color:#66d9ef">return</span> Int(Double(order.total()) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.7</span>)
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+}
+</code></pre></div><p>and the context look like</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">typealias</span> Promotion = (<span style="color:#66d9ef">_</span> order: Order) -&gt; Int
+<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> Context</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> {
+    <span style="color:#66d9ef">let</span> user: User!
+    <span style="color:#66d9ef">let</span> cart: Array&lt;CartItem&gt;
+    <span style="color:#66d9ef">let</span> promotion: Promotion?
+
+    <span style="color:#66d9ef">init</span>(user: User, cart: Array&lt;CartItem&gt;, promotion: @escaping Promotion) {
+        <span style="color:#66d9ef">self</span>.user = user
+        <span style="color:#66d9ef">self</span>.cart = cart
+        <span style="color:#66d9ef">self</span>.promotion = promotion
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">discount</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> promotion?(<span style="color:#66d9ef">self</span>) ?? <span style="color:#ae81ff">0</span>
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">total</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> cart.reduce(<span style="color:#ae81ff">0</span>) { (result, item) -&gt; Int <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">return</span> result <span style="color:#f92672">+</span> item.total()
+        }
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">finalPayment</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> total() <span style="color:#f92672">-</span> discount()
+    }
+}
+</code></pre></div><ul>
+<li>To compute a discount, just call the promotion(self) function.</li>
+<li>No abstract class.</li>
+<li>Each strategy is a function.</li>
+</ul>
+<p>Normally with we usually combine many strategies to calculate something.
+Example: User wants to find the best promotion for an order. It means we will find the max discount for the order.
+This is the simplest solution:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bestPromo</span>(order: Order, promos: Array&lt;Promotion&gt;) -&gt; Int {
+    <span style="color:#66d9ef">return</span> promos.map{ $0(order) }.max()<span style="color:#f92672">!</span>
+}
+</code></pre></div><ul>
+<li>promos: list of the strategies implemented as functions.: <code>[userRewardPromote , bulkPromote , largeItemPromote]</code></li>
+<li>bestPromo takes an instance of Order and promos as argument, and excute each function in list promos to find the best promotion.</li>
+</ul>
+<p>After refactor this is much better . However, There is some duplication that could lead to a subtle bug: to add a new promotion strategy, we need to code the function and remember to add it to the promos list.
+To prevent this issue we can using new feature in swift <code>Property Wrapper</code>. This feature added to swift5.1.
+Just simply create property wrapper below. Each strategy function will add to <code>promos</code> list by <code>PromotionWrapper</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">var</span> promos: Array&lt;Promotion&gt; = []
+@propertyWrapper
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">PromotionWrapper</span> {
+    <span style="color:#66d9ef">var</span> wrappedValue: Promotion
+    <span style="color:#66d9ef">init</span>(wrappedValue value:  @escaping Promotion) {
+        promos.append(value)
+        <span style="color:#66d9ef">self</span>.wrappedValue = value
+      }
+}
+</code></pre></div><p>Then the Concrete strategy look like this .</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">    @PromotionWrapper
+    <span style="color:#66d9ef">var</span> userRewardPromote = { order -&gt; Int <span style="color:#66d9ef">in</span>
+        <span style="color:#66d9ef">if</span> (order.user.rewaredPoint <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">100</span>) {
+            <span style="color:#66d9ef">return</span> Int(Double(order.total()) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.1</span>)
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    }
+</code></pre></div><p>Now any Concrete strategy tag with <code>@PromotionWrapper</code> will be added to the promo list.</p>
+<p>Some advantage of using <code>Property Wrapper</code>:</p>
+<ul>
+<li>The <code>@PromotionWrapper</code> highlights the purpose of the function, and also makes it easy to temporarily disable a promotion: just comment out the property wrapper</li>
+<li>Concrete strategies may be defined in other modules, anywhere in the system, as long as the <code>@PromotionWrapper</code> is applied to them.</li>
+</ul>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+
+        
+        
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/khoi-nguyen-753306a7" target="_blank">linkedin</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/ntkhoi" target="_blank">Github</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>
