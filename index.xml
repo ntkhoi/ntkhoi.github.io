@@ -2,23 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Khoi&#39;s Blog</title>
-    <link>https://ntkhoi.github.io/</link>
+    <link>http://example.org/</link>
     <description>Recent content on Khoi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 04 Apr 2020 00:08:29 +0700</lastBuildDate>
+    <language>en-us</language>
     
-	<atom:link href="https://ntkhoi.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Refactoring Strategy Pattern Swift</title>
-      <link>https://ntkhoi.github.io/posts/strategy-pattern-swift/</link>
-      <pubDate>Sat, 04 Apr 2020 00:08:29 +0700</pubDate>
-      
-      <guid>https://ntkhoi.github.io/posts/strategy-pattern-swift/</guid>
-      <description>Problem An Example of strategy applies to the eCommerce, domain is computed discounts to other based on the behavior of the customer, attributes of ordered items. A clear Example of Strategy applied in getting discount on food delivery order. Example: Oder food delivery with some discount rule:
- Discount 10% for User have 100 or more grab reward point. Discount 5$ apply to order with price total 100$ or more. Discount 7% apply to order have at least 10 distinct items  UML class diagram implements strategy pattern</description>
-    </item>
     
   </channel>
 </rss>
