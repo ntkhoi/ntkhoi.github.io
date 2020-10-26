@@ -8,13 +8,18 @@
   </url>
   
   <url>
-    <loc>http://example.org/posts/amazon-s3-memo/</loc>
+    <loc>http://example.org/posts/amazon-ec2-memo/</loc>
     <lastmod>2020-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://example.org/posts/</loc>
     <lastmod>2020-10-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/amazon-s3-memo/</loc>
+    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>

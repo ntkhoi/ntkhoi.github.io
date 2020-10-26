@@ -12,12 +12,25 @@
     
     
     <item>
-      <title>MEMO: Amazon S3 - Amazon Simple Storage Service</title>
-      <link>http://example.org/posts/amazon-s3-memo/</link>
+      <title>MEMO: Amazon ES2 - Amazon Elastic Compute Cloud</title>
+      <link>http://example.org/posts/amazon-ec2-memo/</link>
       <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
       
+      <guid>http://example.org/posts/amazon-ec2-memo/</guid>
+      <description>Amazon EC2 is AWS primary web service that provides resizable compute capacity in the cloud.
+Amazon EC2 is allows you to acquire compute through the lanching of viturak servers call instances.
+Instance Types Instance Types defines the vitural hardware supporting an Amazon EC2 instance.
+There are many instance types available follow these dimension.
+ vCPU Memory Storage (Size/Type) Network perormance Instance types are group into families base on the ratio of these values to each other  Amazon Machine Images (AMIs).</description>
+    </item>
+    
+    <item>
+      <title>MEMO: Amazon S3 - Amazon Simple Storage Service</title>
+      <link>http://example.org/posts/amazon-s3-memo/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
       <guid>http://example.org/posts/amazon-s3-memo/</guid>
-      <description>MEMO: Amazon S3 - Amazon Simple Storage Service What is S3.  Save place to store your files. Is a object-base storage. The object is spread across multiple devices and facilities.  The basic of S3. Buckets  A bucket is a container of objects stored in Amazon S3. Every object is contained in a Bucket. Bucket name is a univeral namespace. That is, name must be unique globally. Each bucket created in a specific region.</description>
+      <description>What is S3.  Save place to store your files. Is a object-base storage. The object is spread across multiple devices and facilities.  The basic of S3. Buckets  A bucket is a container of objects stored in Amazon S3. Every object is contained in a Bucket. Bucket name is a univeral namespace. That is, name must be unique globally. Each bucket created in a specific region.  Objects  Object are the entities or files stored in S3 bucket.</description>
     </item>
     
     <item>

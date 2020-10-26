@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.69.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Khoi Nguyen" />
+  <meta property="og:url" content="http://example.org/posts/amazon-ec2-memo/" />
+  <link rel="canonical" href="http://example.org/posts/amazon-ec2-memo/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="Khoi&#39;s Blog">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/example.org\/"
+      },
+      "articleSection" : "posts",
+      "name" : "MEMO: Amazon ES2 - Amazon Elastic Compute Cloud",
+      "headline" : "MEMO: Amazon ES2 - Amazon Elastic Compute Cloud",
+      "description" : "Amazon EC2 is AWS primary web service that provides resizable compute capacity in the cloud.\nAmazon EC2 is allows you to acquire compute through the lanching of viturak servers call instances.\nInstance Types Instance Types defines the vitural hardware supporting an Amazon EC2 instance.\nThere are many instance types available follow these dimension.\n vCPU Memory Storage (Size\/Type) Network perormance Instance types are group into families base on the ratio of these values to each other  Amazon Machine Images (AMIs).",
+      "inLanguage" : "en-US",
+      "author" : "Khoi Nguyen",
+      "creator" : "Khoi Nguyen",
+      "publisher": "Khoi Nguyen",
+      "accountablePerson" : "Khoi Nguyen",
+      "copyrightHolder" : "Khoi Nguyen",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-10-26 00:00:00 \x2b0000 UTC",
+      "dateModified" : "2020-10-26 00:00:00 \x2b0000 UTC",
+      "url" : "http:\/\/example.org\/posts\/amazon-ec2-memo\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>MEMO: Amazon ES2 - Amazon Elastic Compute Cloud - Khoi&#39;s Blog</title>
+  <meta property="og:title" content="MEMO: Amazon ES2 - Amazon Elastic Compute Cloud - Khoi&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Amazon EC2 is AWS primary web service that provides resizable compute capacity in the cloud.
+Amazon EC2 is allows you to acquire compute through the lanching of viturak servers call instances.
+Instance Types Instance Types defines the vitural hardware supporting an Amazon EC2 instance.
+There are many instance types available follow these dimension.
+ vCPU Memory Storage (Size/Type) Network perormance Instance types are group into families base on the ratio of these values to each other  Amazon Machine Images (AMIs)." />
+  <meta name="description" content="Amazon EC2 is AWS primary web service that provides resizable compute capacity in the cloud.
+Amazon EC2 is allows you to acquire compute through the lanching of viturak servers call instances.
+Instance Types Instance Types defines the vitural hardware supporting an Amazon EC2 instance.
+There are many instance types available follow these dimension.
+ vCPU Memory Storage (Size/Type) Network perormance Instance types are group into families base on the ratio of these values to each other  Amazon Machine Images (AMIs)." />
+  <meta property="og:locale" content="en-us" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="Khoi&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker|Bree+Serif" rel="stylesheet">
+  
+  
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Khoi Nguyen</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">MEMO: Amazon ES2 - Amazon Elastic Compute Cloud</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-10-26 00:00:00 UTC">
+                26 Oct 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://github.com/ntkhoi">@Khoi Nguyen</a>
+              </div>
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <p>Amazon EC2 is AWS primary web service that provides resizable compute capacity in the cloud.<br>
+Amazon EC2 is allows you to acquire compute through the lanching of viturak servers call <code>instances</code>.</p>
+<h2 id="instance-types">Instance Types</h2>
+<p>Instance Types defines the vitural hardware supporting an Amazon EC2 instance.<br>
+There are many instance types available follow these dimension.</p>
+<ul>
+<li>vCPU</li>
+<li>Memory</li>
+<li>Storage (Size/Type)</li>
+<li>Network perormance
+Instance types are group into families base on the ratio of these values to each other</li>
+</ul>
+<h2 id="amazon-machine-images-amis">Amazon Machine Images (AMIs).</h2>
+<p>THe Amazon machine images defines the initial software the will be on an instance when it is launched.
+AMIs contain:</p>
+<ul>
+<li>The OS and it&rsquo;s configuration</li>
+<li>The initial state of any patches</li>
+<li>Application or system software
+There are 4 source of AMIs.</li>
+<li>Pushlished by AWS</li>
+<li>The AWS marketplace</li>
+<li>Generated from an existing instances.</li>
+<li>Uploaded virtual server</li>
+</ul>
+<h2 id="addressing-an-instance">Addressing an Instance</h2>
+<ul>
+<li>Public Domain Name System (DNS): Name created when launch an instance.</li>
+<li>Public ID : Also created wheb launch an instance.</li>
+<li>Elastic IP: is an IP address associate with EC2 instance, persits untill customer release and can be transfer.</li>
+</ul>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+
+        
+        
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://ntkhoi.github.io/about" target="_blank">About</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/khoi-nguyen-753306a7" target="_blank">Linkedin</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/ntkhoi" target="_blank">Github</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>
