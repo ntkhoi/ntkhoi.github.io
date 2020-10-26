@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Khoi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Apr 2020 00:08:29 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MEMO: Amazon S3 - Amazon Simple Storage Service</title>
+      <link>http://example.org/posts/amazon-s3-memo/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/amazon-s3-memo/</guid>
+      <description>MEMO: Amazon S3 - Amazon Simple Storage Service What is S3.  Save place to store your files. Is a object-base storage. The object is spread across multiple devices and facilities.  The basic of S3. Buckets  A bucket is a container of objects stored in Amazon S3. Every object is contained in a Bucket. Bucket name is a univeral namespace. That is, name must be unique globally. Each bucket created in a specific region.</description>
+    </item>
     
     <item>
       <title>Refactoring Strategy Pattern Swift -2020</title>

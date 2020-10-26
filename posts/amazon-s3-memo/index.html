@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.69.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Khoi Nguyen" />
+  <meta property="og:url" content="http://example.org/posts/amazon-s3-memo/" />
+  <link rel="canonical" href="http://example.org/posts/amazon-s3-memo/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="Khoi&#39;s Blog">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/example.org\/"
+      },
+      "articleSection" : "posts",
+      "name" : "MEMO: Amazon S3 - Amazon Simple Storage Service",
+      "headline" : "MEMO: Amazon S3 - Amazon Simple Storage Service",
+      "description" : "MEMO: Amazon S3 - Amazon Simple Storage Service What is S3.  Save place to store your files. Is a object-base storage. The object is spread across multiple devices and facilities.  The basic of S3. Buckets  A bucket is a container of objects stored in Amazon S3. Every object is contained in a Bucket. Bucket name is a univeral namespace. That is, name must be unique globally. Each bucket created in a specific region.",
+      "inLanguage" : "en-US",
+      "author" : "Khoi Nguyen",
+      "creator" : "Khoi Nguyen",
+      "publisher": "Khoi Nguyen",
+      "accountablePerson" : "Khoi Nguyen",
+      "copyrightHolder" : "Khoi Nguyen",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-10-26 00:00:00 \x2b0000 UTC",
+      "dateModified" : "2020-10-26 00:00:00 \x2b0000 UTC",
+      "url" : "http:\/\/example.org\/posts\/amazon-s3-memo\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>MEMO: Amazon S3 - Amazon Simple Storage Service - Khoi&#39;s Blog</title>
+  <meta property="og:title" content="MEMO: Amazon S3 - Amazon Simple Storage Service - Khoi&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="MEMO: Amazon S3 - Amazon Simple Storage Service What is S3.  Save place to store your files. Is a object-base storage. The object is spread across multiple devices and facilities.  The basic of S3. Buckets  A bucket is a container of objects stored in Amazon S3. Every object is contained in a Bucket. Bucket name is a univeral namespace. That is, name must be unique globally. Each bucket created in a specific region." />
+  <meta name="description" content="MEMO: Amazon S3 - Amazon Simple Storage Service What is S3.  Save place to store your files. Is a object-base storage. The object is spread across multiple devices and facilities.  The basic of S3. Buckets  A bucket is a container of objects stored in Amazon S3. Every object is contained in a Bucket. Bucket name is a univeral namespace. That is, name must be unique globally. Each bucket created in a specific region." />
+  <meta property="og:locale" content="en-us" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="Khoi&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker|Bree+Serif" rel="stylesheet">
+  
+  
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Khoi Nguyen</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">MEMO: Amazon S3 - Amazon Simple Storage Service</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-10-26 00:00:00 UTC">
+                26 Oct 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://github.com/ntkhoi">@Khoi Nguyen</a>
+              </div>
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <h1 id="memo-amazon-s3---amazon-simple-storage-service">MEMO: Amazon S3 - Amazon Simple Storage Service</h1>
+<h3 id="what-is-s3">What is S3.</h3>
+<ul>
+<li>Save place to store your files.</li>
+<li>Is a object-base storage.</li>
+<li>The object is spread across multiple devices and facilities.</li>
+</ul>
+<h3 id="the-basic-of-s3">The basic of S3.</h3>
+<h5 id="buckets">Buckets</h5>
+<ul>
+<li>A bucket is a container of objects stored in Amazon S3.</li>
+<li>Every object is contained in a Bucket.</li>
+<li>Bucket name is a univeral namespace. That is, name must be unique globally.</li>
+<li>Each bucket created in a specific region.</li>
+</ul>
+<h5 id="objects">Objects</h5>
+<ul>
+<li>Object are the entities or files stored in S3 bucket.</li>
+<li>Obejct size is from 0 - 5 TB.</li>
+<li>A bucket can store unlimit objects.</li>
+<li>Each objects consists of data(files itself) and metadata (name/value pairs : system metadata and user metadata).</li>
+</ul>
+<h5 id="keys">Keys</h5>
+<ul>
+<li>Each object in S3 is identified by a unique identifier call keys (like filename up to 1024 bytes of Unicode)</li>
+<li>Key must be unique within a single bucket</li>
+</ul>
+<h5 id="object-url">Object URL</h5>
+<p>Each object can be address in intenet by a unique URL using web service endpoint, bucket name and object key.</p>
+<h5 id="s3-operations">S3 Operations.</h5>
+<ul>
+<li>Create/Deleta a bucket</li>
+<li>Read/Write a object</li>
+<li>Delete a object</li>
+<li>List keys in a bucket</li>
+</ul>
+<p>Data in S3 is eventually consistent system. Data will automatically replicated  across multiple AZs within a region. Change data may take time to to propagate to all locations.</p>
+<ul>
+<li>Read after write consistency for PUT a new objects.</li>
+<li>Eventualy cosistency for overide PUT and DELETE</li>
+</ul>
+<h5 id="access-control">Access Control</h5>
+<p>S3 sercure is default (only the owner is able to access S3 when it create )
+Can setup access control the the bucket using ACLs</p>
+<ol>
+<li>Access Control list (manage access to buckets and object, grant read/write for object and bucket, enabling bucket logging, make bucket host a static web)</li>
+<li>Bucket policy  (you can specify who can access the bucket, from where (by Classless Inter-Domain Routing [CIDR] block or IP address), and during what time of day.)</li>
+</ol>
+<h3 id="amazon-s3-advanced-features">Amazon S3 Advanced Features.</h3>
+<h5 id="storage-classes">Storage Classes</h5>
+<ol>
+<li>Amazon S3 Standard offers high durability, high availability, low latency, and high performance object storage</li>
+<li>Amazon S3 Standard – Infrequent Access (Standard-IA) is the same with standard but design for less frequently access.</li>
+<li>Amazon S3 rreduced Redundancy Storage (RRS):  offers slightly lower durability (4 nines) than standard or standard I-A at a reduce cost.</li>
+<li>Amazon Glacie: Sercure durable , low cost cloud storage for data does not required real time access such as  archies and long-term backup.</li>
+</ol>
+<h5 id="object-lifecycle-management">Object Lifecycle management</h5>
+<ul>
+<li>Automatic moving your objects between dirrerent  storage tiers.</li>
+<li>Can be apply between current version and previous version.</li>
+<li>Lifecycle configurations are attached to the bucket and can apply to all objects in the bucket or only to objects specified by a prefix.</li>
+</ul>
+<h5 id="encryption">Encryption</h5>
+<ol>
+<li>Client-Side Encryption</li>
+<li>Server-Side Encrytion</li>
+</ol>
+<ul>
+<li>SSE-S3 (AWS-Managed Keys)</li>
+<li>SSE-KMS (AWS-KMS Keys)</li>
+<li>SSE-C (Customer proviced key)</li>
+</ul>
+<h5 id="versioning">Versioning</h5>
+<ul>
+<li>Protect by storage multiple version of each object.</li>
+<li>Once enable, versioning can not be removed from a bucket. Can be suspended.</li>
+</ul>
+<h5 id="pre-signed-urls">Pre-Signed URLs</h5>
+<ul>
+<li>the object owner can optionally share objects with others by creating a pre-signed URL.</li>
+<li>owner can provide your security credentials and specify a bucket name and expiration date and time for URL.</li>
+</ul>
+<h5 id="multipart-upload">Multipart Upload</h5>
+<p>Should use multipart upload for objects larger than 100 Mbytes
+Must use for objects larger then 5GB</p>
+<h5 id="cross-region-replication">Cross-Region Replication</h5>
+<ul>
+<li>Asynchronously replicate all new objects in the source bucket in one AWS region to a target bucket in another region</li>
+<li>To enable cross-region replication, <code>versioning must be turned on</code> for both source and destination buckets, and you must use an IAM policy to give Amazon S3 permission to replicate objects on your behalf.</li>
+<li>If turned on in an existing bucket, cross-region replication will only replicate new objects. Existing objects will not be replicated and must be copied to the new bucket via a separate command.</li>
+</ul>
+<h5 id="logging">Logging</h5>
+<p>Including info when enable (disable by default)</p>
+<ul>
+<li>Request account and IP</li>
+<li>Bucket name</li>
+<li>Request time</li>
+<li>Action PUT/GET/DELETE</li>
+<li>Response status and error code</li>
+</ul>
+<h5 id="event-notifications">Event Notifications</h5>
+<p>Can be send through.</p>
+<ul>
+<li>AWS SNS</li>
+<li>AWS SQS</li>
+<li>Lamda Function.</li>
+</ul>
+<h3 id="amazon-glacier">Amazon Glacier</h3>
+<p>Store infrequently data and retrieval time is about 3 - 5 hours.</p>
+<h5 id="archives">Archives</h5>
+<p>In Glacier data stored in archives.
+a Archive can up to 40 TB and can have unlimitee archive</p>
+<h5 id="vaults">Vaults</h5>
+<p>Vaults is container for archive
+1 AWS account can have 1000 vaults.</p>
+<h5 id="vaults-locks">Vaults Locks</h5>
+<p>Lock policy can be apply to Vault.
+Can Specify controls such as Write Once Read Many (WORM) in a vault lock policy. Once lock, pocicy can not longer to change.</p>
+<h5 id="data-retrieval">Data Retrieval</h5>
+<p>Can retrieve up to 5% of your data stored in Amazon Glacier for free each month</p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+
+        
+        
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://ntkhoi.github.io/about" target="_blank">About</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/khoi-nguyen-753306a7" target="_blank">Linkedin</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/ntkhoi" target="_blank">Github</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>
