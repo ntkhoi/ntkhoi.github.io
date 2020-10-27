@@ -137,6 +137,18 @@ There are 4 source of AMIs.</li>
 <li>Public ID : Also created wheb launch an instance.</li>
 <li>Elastic IP: is an IP address associate with EC2 instance, persits untill customer release and can be transfer.</li>
 </ul>
+<h2 id="virtual-firewall-protection">Virtual Firewall Protection</h2>
+<p>AWS allow you control traffic in and out of your instances through a virtual firewalls call <code>Sercurity Group</code><br>
+Sercurity group allow you control your traffic base on port, protocol and source/destination.</p>
+<ul>
+<li>All inbound traffic is block by default.</li>
+<li>All outbound traffic is allow by default.</li>
+<li>Change to sercurity group effect immediately.</li>
+<li>A instance must have as least one sercurity group.</li>
+<li>Sercurity group is STATEFUL.  (allow traffic inbound in -&gt; outbough traffics allow automatically).</li>
+<li>Can not block special IP address by sercurity group instead using Network Access Control Lists ACLs .</li>
+<li>Can set allow rules but can not set deny rules.</li>
+</ul>
 
         </div>
 
