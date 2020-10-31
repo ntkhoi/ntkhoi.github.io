@@ -218,3 +218,7 @@ a:hover {
   bottom: 0;
   background: white;
 }
+
+.highlight {
+  background-color: #ffffff
+}

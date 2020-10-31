@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.69.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Khoi Nguyen" />
+  <meta property="og:url" content="http://example.org/posts/mutable-parameter-python/" />
+  <link rel="canonical" href="http://example.org/posts/mutable-parameter-python/" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="Khoi&#39;s Blog">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "http:\/\/example.org\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Mutable Types as Parameter Defaults - Python - (Source Of Bugs)",
+      "headline" : "Mutable Types as Parameter Defaults - Python - (Source Of Bugs)",
+      "description" : "Today I am sharing my lesson learned after some hours debugging then figure out a common mistake which many new python developers like me may be faced with.\nWhat did i do! Here is my simple class to implement a Basket with holding some carts when user checkout.\nclass Basket: def __init__(self, carts=[]): self.carts = carts def add_items(self, item): self.carts.append(item) Basically a list of cart can be add to Basket when it initiation.",
+      "inLanguage" : "en-US",
+      "author" : "Khoi Nguyen",
+      "creator" : "Khoi Nguyen",
+      "publisher": "Khoi Nguyen",
+      "accountablePerson" : "Khoi Nguyen",
+      "copyrightHolder" : "Khoi Nguyen",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-10-30 00:00:00 \x2b0000 UTC",
+      "dateModified" : "2020-10-30 00:00:00 \x2b0000 UTC",
+      "url" : "http:\/\/example.org\/posts\/mutable-parameter-python\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Mutable Types as Parameter Defaults - Python - (Source Of Bugs) - Khoi&#39;s Blog</title>
+  <meta property="og:title" content="Mutable Types as Parameter Defaults - Python - (Source Of Bugs) - Khoi&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Today I am sharing my lesson learned after some hours debugging then figure out a common mistake which many new python developers like me may be faced with.
+What did i do! Here is my simple class to implement a Basket with holding some carts when user checkout.
+class Basket: def __init__(self, carts=[]): self.carts = carts def add_items(self, item): self.carts.append(item) Basically a list of cart can be add to Basket when it initiation." />
+  <meta name="description" content="Today I am sharing my lesson learned after some hours debugging then figure out a common mistake which many new python developers like me may be faced with.
+What did i do! Here is my simple class to implement a Basket with holding some carts when user checkout.
+class Basket: def __init__(self, carts=[]): self.carts = carts def add_items(self, item): self.carts.append(item) Basically a list of cart can be add to Basket when it initiation." />
+  <meta property="og:locale" content="en-us" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow-night.css" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="Khoi&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker|Bree+Serif" rel="stylesheet">
+  
+  
+
+  
+</head>
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Khoi Nguyen</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Mutable Types as Parameter Defaults - Python - (Source Of Bugs)</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-10-30 00:00:00 UTC">
+                30 Oct 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://github.com/ntkhoi">@Khoi Nguyen</a>
+              </div>
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <p>Today I am sharing my lesson learned after some hours debugging then figure out a common mistake which many new python developers like me may be faced with.</p>
+<h1 id="what-did-i-do">What did i do!</h1>
+<p>Here is my simple class to implement a Basket with holding some carts when user checkout.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Basket</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, carts<span style="color:#f92672">=</span>[]):
+        self<span style="color:#f92672">.</span>carts <span style="color:#f92672">=</span> carts
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_items</span>(self, item):
+        self<span style="color:#f92672">.</span>carts<span style="color:#f92672">.</span>append(item)
+</code></pre></div><p>Basically a list of cart can be add to Basket when it initiation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">basket <span style="color:#f92672">=</span> Basket([<span style="color:#e6db74">&#39;book&#39;</span>, <span style="color:#e6db74">&#39;phone&#39;</span>])
+basket<span style="color:#f92672">.</span>carts
+<span style="color:#75715e">#Out: [&#39;book&#39;, &#39;phone&#39;]</span>
+
+basket2 <span style="color:#f92672">=</span> Basket([<span style="color:#e6db74">&#39;fashion&#39;</span>, <span style="color:#e6db74">&#39;home and kitchen&#39;</span>])
+basket2<span style="color:#f92672">.</span>carts
+<span style="color:#75715e">#Out: [&#39;book&#39;, &#39;phone&#39;]</span>
+[<span style="color:#e6db74">&#39;fashion&#39;</span>, <span style="color:#e6db74">&#39;home and kitchen&#39;</span>]
+</code></pre></div><p>It&rsquo;s working ok. However, when the <code>Basket</code> created without  carts on <code>__init__</code> method. Something weird occurs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">basket3 <span style="color:#f92672">=</span> Basket()
+basket3<span style="color:#f92672">.</span>add_items(<span style="color:#e6db74">&#39;book&#39;</span>)
+basket3<span style="color:#f92672">.</span>carts
+<span style="color:#75715e">#Out: [&#39;book&#39;]</span>
+
+basket4 <span style="color:#f92672">=</span> Basket()
+basket4<span style="color:#f92672">.</span>carts
+<span style="color:#75715e">#Out: [&#39;book&#39;]</span>
+</code></pre></div><p>It&rsquo;s very unusual here is the <code>basket4.carts</code> is no longer an empty list when it&rsquo;s created.</p>
+<h1 id="the-problem">The problem</h1>
+<p><code>carts=[]</code> was the causing of this mess.
+And the root casue  is :</p>
+<blockquote>
+<p>Python’s default arguments are evaluated once when the function is defined, not each time the function is called like many other language(ruby, swift, c#..).</p>
+</blockquote>
+<p>When passing an empty <code>carts</code> to the function .The default <code>carts</code> values will become attributes of the function object and the <code>carts</code> is mutable objects (list) then we can change it, the change will affect every future call of the function.
+We can verify do the basket3.carts and basket4.carts reference to the same objects by this code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">Basket<span style="color:#f92672">.</span>__init__<span style="color:#f92672">.</span>__defaults__[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">is</span> basket3<span style="color:#f92672">.</span>carts
+<span style="color:#75715e"># Out:True</span>
+Basket<span style="color:#f92672">.</span>__init__<span style="color:#f92672">.</span>__defaults__[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">is</span> basket3<span style="color:#f92672">.</span>carts
+<span style="color:#75715e"># Out:True</span>
+Basket<span style="color:#f92672">.</span>__init__<span style="color:#f92672">.</span>__defaults__[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">is</span> basket4<span style="color:#f92672">.</span>carts
+<span style="color:#75715e"># Out:True</span>
+</code></pre></div><h1 id="defensive-with-mutable-parameters">Defensive with Mutable Parameters</h1>
+<p>When working with mutable Parameters like <code>list</code>, <code>dict</code>, <code>set</code> even <code>class instance</code> we have to consider the change of object will affect outside the function or not.
+A common way with many python programer choose to defense is adding <code>None</code> as a default parameter .</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Basket</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, carts<span style="color:#f92672">=</span>None):
+        <span style="color:#66d9ef">if</span> carts <span style="color:#f92672">is</span> None:
+            carts <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>carts <span style="color:#f92672">=</span> carts
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_items</span>(self, item):
+        self<span style="color:#f92672">.</span>carts<span style="color:#f92672">.</span>append(item)
+</code></pre></div><p>Here we are careful to create a new empty list when carts is None. So when create new <code>Basket</code> instance with default <code>None</code>. A new empty <code>list</code> will be created to prevent receiving unexpected <code>carts</code> .
+It&rsquo;s good but not enough when passing <code>carts</code> with some item a reference still reference to mutable list <code>carts</code> data can be unexpected change call <code>add_items</code> or <code>remove_items</code> whatever we change on <code>carts</code>.</p>
+<p>We can simply fix by make a copy after receive a mutable parameter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Basket</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, carts<span style="color:#f92672">=</span>None):
+        <span style="color:#66d9ef">if</span> carts <span style="color:#f92672">is</span> None:
+            carts <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>carts <span style="color:#f92672">=</span> list(carts)
+</code></pre></div><h1 id="note">Note</h1>
+<blockquote>
+<p>Always careful when working with <code>Mutable Parameter</code>.</p>
+</blockquote>
+<p>With view of a new python developer (1 year ) this is a totally bad feature. Hope i will find some good reasons why this feature available in python then update later.</p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+
+        
+        
+
+        
+        
+        <div style="height: 50px;"></div>
+        
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://ntkhoi.github.io/about" target="_blank">About</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://www.linkedin.com/in/khoi-nguyen-753306a7" target="_blank">Linkedin</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/ntkhoi" target="_blank">Github</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>
